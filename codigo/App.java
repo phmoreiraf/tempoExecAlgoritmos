@@ -1,4 +1,4 @@
-package src.main.java.execucaoalgoritmos;
+
 
 import java.util.Arrays;
 import java.util.Random;

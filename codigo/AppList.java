@@ -1,4 +1,6 @@
-package src.main.java.execucaoalgoritmos;
+import java.util.ArrayList;
+
+
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -112,3 +114,36 @@ public class Pessoa {
     }
 
 }
+
+public class AppList {
+    public static void main(String[] args) throws Exception {
+
+        GerenciadorPessoas gerenciador = new GerenciadorPessoas();
+
+        final double NANO_TO_MS = 1_000_000d; // para converter de nano a milissegundos
+        final double MS_TO_SEC = 1_000d;
+
+        long ini = System.nanoTime();
+
+        gerenciador.inserirPessoas(2500000);
+        ArrayList<Pessoa> pessoasEncontradas = gerenciador.buscarPessoas(40000);
+        System.out.println("Pessoas encontradas:");
+        for (Pessoa pessoa : pessoasEncontradas) {
+            System.out.println(pessoa);
+        }
+
+        long fim = System.nanoTime();
+
+        double tempoMs = (fim - ini) / NANO_TO_MS; // conversões e, em seguida, impressão do resultado
+        double tempoSeg = tempoMs / MS_TO_SEC;
+
+        System.out.println("Finalizado em " + String.format("%.2f", tempoMs) + " ms ("
+                + String.format("%.4f", tempoSeg) + " segundos).");
+    }
+}
+
+/// YAROSLAVSKIY, V. Dual-pivot quicksort. Research Disclosure, 2009.
+// Disponível em
+// https://pt.wikipedia.org/wiki/Quicksort#Quicksort_utilizando_dois_ou_mais_pivôs
+// https://en.wikipedia.org/wiki/Quicksort#Variants
+// http://www.kriche.com.ar/root/programming/spaceTimeComplexity/DualPivotQuicksort.pdf
