@@ -1,5 +1,3 @@
-
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -16,13 +14,13 @@ public class AppHash {
 
         long ini = System.nanoTime();
         // Inserindo P pessoas com id crescente no HashMap
-        final int P = 10000000;
+        final int P = 10000000; // Mudar de acordo com o teste que queira realizar
         for (int i = 1; i <= P; i++) {
             mapaPessoas.put(i, new Pessoa(i, "Pessoa " + i));
         }
 
         // Realizando N buscas por pessoas com ids aleatórios no HashMap
-        final int N = 20000;
+        final int N = 20000; // Mudar de acordo com o teste que queira realizar
         Random rand = new Random();
         for (int i = 0; i < N; i++) {
             int idAleatorio = rand.nextInt(P) + 1; // Gerando um id aleatório entre 1 e P
